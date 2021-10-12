@@ -2,12 +2,10 @@ name: Docker Image CI
 
 on:
   push:
-    tags: [ 'v*.*' ]
+    tags: ["v*.*"]
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -18,7 +16,7 @@ jobs:
         with:
           username: ${{ github.actor }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-        
+
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
         with:

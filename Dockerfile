@@ -14,11 +14,6 @@ RUN mkdir /root/.ssh/ && touch /root/.ssh/config && echo "StrictHostKeyChecking 
 RUN echo "IdentityFile /root/.ssh/id_rsa" >> /etc/ssh/ssh_config
 RUN touch /root/.ssh/id_rsa
 
-RUN echo "Sanity check"
-RUN echo "node: $(node --version)"
-RUN echo "yarn: $(yarn --version)"
-RUN echo "python3: $(python3 --version)"
-RUN echo "pip3: $(pip3 --version)"
-RUN echo "aws: $(aws --version)"
+RUN printf "Sanity check:\nnode: %s\nyarn: %s\npython: %s\npip3: %s\naws: %s\n" "$(node --version)" "$(yarn --version)" "$(python3 --version)" "$(pip3 --version)" "$(aws --version)"
 
 CMD ["bash"]
